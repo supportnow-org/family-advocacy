@@ -50,22 +50,26 @@
     <form id="advocateForm" novalidate>
       <div class="form-card" id="formCard">
 
-        <!-- 1. About you -->
+        <!-- 1. Type of advocacy -->
         <section class="form-section">
           <div class="fs-head">
             <span class="fs-num">1</span>
-            <div><h3 class="fs-title">About you</h3><p class="fs-sub">So we can reach you about matches.</p></div>
+            <div><h3 class="fs-title">Type of family advocacy you do</h3><p class="fs-sub">Choose all that apply. If you're just starting, pick the areas you'd want to focus on.</p></div>
           </div>
-          <div class="field"><label class="field-label">Full name <span class="req">*</span></label>
-            <input type="text" class="form-control" name="name" placeholder="Jordan Rivera" required></div>
-          <div class="field"><label class="field-label">Email <span class="req">*</span></label>
-            <input type="email" class="form-control" name="email" placeholder="you@email.com" required></div>
-          <div class="field"><label class="field-label">Phone <span class="opt">(optional)</span></label>
-            <input type="tel" class="form-control w-md" name="phone" placeholder="(555) 555-5555"></div>
-          <div class="field"><label class="field-label">State <span class="req">*</span></label>
-            <input type="text" class="form-control w-md" name="state" placeholder="e.g. Texas" required></div>
-          <div class="field"><label class="field-label">ZIP <span class="opt">(optional)</span></label>
-            <input type="text" class="form-control w-sm" name="zip" placeholder="00000"></div>
+          <div class="chip-group">
+            <label class="chip"><input type="checkbox" name="areas" value="special-ed"><i class="fa-solid fa-check"></i> Special education &amp; IEPs</label>
+            <label class="chip"><input type="checkbox" name="areas" value="insurance"><i class="fa-solid fa-check"></i> Insurance &amp; Medicaid</label>
+            <label class="chip"><input type="checkbox" name="areas" value="diagnosis"><i class="fa-solid fa-check"></i> Diagnosis &amp; healthcare</label>
+            <label class="chip"><input type="checkbox" name="areas" value="early-intervention"><i class="fa-solid fa-check"></i> Early intervention</label>
+            <label class="chip"><input type="checkbox" name="areas" value="behavioral"><i class="fa-solid fa-check"></i> Behavioral &amp; mental health</label>
+            <label class="chip"><input type="checkbox" name="areas" value="legal"><i class="fa-solid fa-check"></i> Legal &amp; guardianship</label>
+            <label class="chip"><input type="checkbox" name="areas" value="transition"><i class="fa-solid fa-check"></i> Transition to adulthood</label>
+            <label class="chip"><input type="checkbox" name="areas" value="peer"><i class="fa-solid fa-check"></i> Peer &amp; emotional support</label>
+            <label class="chip"><input type="checkbox" name="areas" value="other" data-reveal-target="adv-area-other"><i class="fa-solid fa-check"></i> Something else</label>
+          </div>
+          <div class="reveal" id="adv-area-other">
+            <input type="text" class="form-control" name="areas_other" placeholder="Tell us what kind of advocacy you focus on">
+          </div>
         </section>
 
         <!-- 2. Where you are today -->
@@ -103,25 +107,29 @@
           </div>
         </section>
 
-        <!-- 4. Type of advocacy -->
+        <!-- 4. How you offer support -->
         <section class="form-section">
           <div class="fs-head">
             <span class="fs-num">4</span>
-            <div><h3 class="fs-title">Type of family advocacy you do</h3><p class="fs-sub">Choose all that apply. If you're just starting, pick the areas you'd want to focus on.</p></div>
+            <div><h3 class="fs-title">How you offer support</h3><p class="fs-sub">You set your own terms. This just helps us match well.</p></div>
           </div>
-          <div class="chip-group">
-            <label class="chip"><input type="checkbox" name="areas" value="special-ed"><i class="fa-solid fa-check"></i> Special education &amp; IEPs</label>
-            <label class="chip"><input type="checkbox" name="areas" value="insurance"><i class="fa-solid fa-check"></i> Insurance &amp; Medicaid</label>
-            <label class="chip"><input type="checkbox" name="areas" value="diagnosis"><i class="fa-solid fa-check"></i> Diagnosis &amp; healthcare</label>
-            <label class="chip"><input type="checkbox" name="areas" value="early-intervention"><i class="fa-solid fa-check"></i> Early intervention</label>
-            <label class="chip"><input type="checkbox" name="areas" value="behavioral"><i class="fa-solid fa-check"></i> Behavioral &amp; mental health</label>
-            <label class="chip"><input type="checkbox" name="areas" value="legal"><i class="fa-solid fa-check"></i> Legal &amp; guardianship</label>
-            <label class="chip"><input type="checkbox" name="areas" value="transition"><i class="fa-solid fa-check"></i> Transition to adulthood</label>
-            <label class="chip"><input type="checkbox" name="areas" value="peer"><i class="fa-solid fa-check"></i> Peer &amp; emotional support</label>
-            <label class="chip"><input type="checkbox" name="areas" value="other" data-reveal-target="adv-area-other"><i class="fa-solid fa-check"></i> Something else</label>
+          <div class="field">
+            <label class="field-label">Do you offer your help free, for pay, or both?</label>
+            <div class="chip-group">
+              <label class="chip"><input type="radio" name="pay" value="free"><i class="fa-solid fa-check"></i> Free</label>
+              <label class="chip"><input type="radio" name="pay" value="paid"><i class="fa-solid fa-check"></i> For pay</label>
+              <label class="chip"><input type="radio" name="pay" value="both"><i class="fa-solid fa-check"></i> Both</label>
+              <label class="chip"><input type="radio" name="pay" value="unsure"><i class="fa-solid fa-check"></i> Not sure yet</label>
+            </div>
           </div>
-          <div class="reveal" id="adv-area-other">
-            <input type="text" class="form-control" name="areas_other" placeholder="Tell us what kind of advocacy you focus on">
+          <div class="field">
+            <label class="field-label">Roughly how many families could you take on now?</label>
+            <div class="chip-group">
+              <label class="chip"><input type="radio" name="capacity" value="unsure"><i class="fa-solid fa-check"></i> Not sure</label>
+              <label class="chip"><input type="radio" name="capacity" value="1-2"><i class="fa-solid fa-check"></i> 1–2</label>
+              <label class="chip"><input type="radio" name="capacity" value="3-5"><i class="fa-solid fa-check"></i> 3–5</label>
+              <label class="chip"><input type="radio" name="capacity" value="6+"><i class="fa-solid fa-check"></i> 6+</label>
+            </div>
           </div>
         </section>
 
@@ -148,41 +156,33 @@
           </div>
         </section>
 
-        <!-- 6. How you offer support -->
+        <!-- 6. Anything else -->
         <section class="form-section">
           <div class="fs-head">
             <span class="fs-num">6</span>
-            <div><h3 class="fs-title">How you offer support</h3><p class="fs-sub">You set your own terms. This just helps us match well.</p></div>
-          </div>
-          <div class="field">
-            <label class="field-label">Do you offer your help free, for pay, or both?</label>
-            <div class="chip-group">
-              <label class="chip"><input type="radio" name="pay" value="free"><i class="fa-solid fa-check"></i> Free</label>
-              <label class="chip"><input type="radio" name="pay" value="paid"><i class="fa-solid fa-check"></i> For pay</label>
-              <label class="chip"><input type="radio" name="pay" value="both"><i class="fa-solid fa-check"></i> Both</label>
-              <label class="chip"><input type="radio" name="pay" value="unsure"><i class="fa-solid fa-check"></i> Not sure yet</label>
-            </div>
-          </div>
-          <div class="field">
-            <label class="field-label">Roughly how many families could you take on now?</label>
-            <div class="chip-group">
-              <label class="chip"><input type="radio" name="capacity" value="unsure"><i class="fa-solid fa-check"></i> Not sure</label>
-              <label class="chip"><input type="radio" name="capacity" value="1-2"><i class="fa-solid fa-check"></i> 1–2</label>
-              <label class="chip"><input type="radio" name="capacity" value="3-5"><i class="fa-solid fa-check"></i> 3–5</label>
-              <label class="chip"><input type="radio" name="capacity" value="6+"><i class="fa-solid fa-check"></i> 6+</label>
-            </div>
-          </div>
-        </section>
-
-        <!-- 7. Anything else -->
-        <section class="form-section">
-          <div class="fs-head">
-            <span class="fs-num">7</span>
             <div><h3 class="fs-title">Anything else</h3><p class="fs-sub">Your approach, your story, what makes you a good fit. Optional.</p></div>
           </div>
           <div class="field">
             <textarea class="form-control" name="about" placeholder="Tell families a little about you and how you help."></textarea>
           </div>
+        </section>
+
+        <!-- 7. About you (contact) -->
+        <section class="form-section">
+          <div class="fs-head">
+            <span class="fs-num">7</span>
+            <div><h3 class="fs-title">About you</h3><p class="fs-sub">Last step. So we can reach you about matches.</p></div>
+          </div>
+          <div class="field"><label class="field-label">Full name <span class="req">*</span></label>
+            <input type="text" class="form-control" name="name" placeholder="Jordan Rivera" required></div>
+          <div class="field"><label class="field-label">Email <span class="req">*</span></label>
+            <input type="email" class="form-control" name="email" placeholder="you@email.com" required></div>
+          <div class="field"><label class="field-label">Phone <span class="opt">(optional)</span></label>
+            <input type="tel" class="form-control w-md" name="phone" placeholder="(555) 555-5555"></div>
+          <div class="field"><label class="field-label">State <span class="req">*</span></label>
+            <input type="text" class="form-control w-md" name="state" placeholder="e.g. Texas" required></div>
+          <div class="field"><label class="field-label">ZIP <span class="opt">(optional)</span></label>
+            <input type="text" class="form-control w-sm" name="zip" placeholder="00000"></div>
         </section>
 
         <!-- 8. Program interest (light opt-in) -->
