@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join as an advocate | SupportNow Family Advocacy</title>
+<meta name="description" content="Put your experience to work for families who need it. Join the SupportNow advocate network, whether you advocate today or are just ready to start.">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<link href="intake.css" rel="stylesheet">
+</head>
+<!-- green accent for the advocate side (mirrors the "I want to help" door) -->
+<body style="--accent:#059669; --accent-dark:#047857; --accent-bg:#ecfdf5">
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <nav class="container container-narrow d-flex align-items-center justify-content-between py-3">
+    <a href="index.html" class="brand-lockup">
+      <img src="logo.svg" alt="SupportNow" class="brand-logo">
+      <span class="vertical-tag d-none d-sm-inline">Family<br>Advocacy</span>
+    </a>
+    <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to home</a>
+  </nav>
+</div>
+
+<!-- HERO -->
+<header class="intake-hero">
+  <div class="container container-narrow text-center">
+    <span class="eyebrow"><i class="fa-solid fa-hands-holding-circle"></i> For advocates</span>
+    <h1 class="text-balance">Put your experience to work for the families who need it</h1>
+    <p class="byline">
+      Whether you've been advocating for years or you're just ready to start, join the network and get
+      matched with families who need exactly what you offer.
+    </p>
+    <div class="trust-row">
+      <span><i class="fa-solid fa-circle-check"></i> No title or experience required to apply</span>
+      <span><i class="fa-solid fa-circle-check"></i> Offer support free, for pay, or both</span>
+      <span><i class="fa-solid fa-circle-check"></i> Takes about 5 minutes</span>
+    </div>
+  </div>
+</header>
+
+<!-- FORM -->
+<main class="form-wrap">
+  <div class="container container-narrow">
+    <form id="advocateForm" novalidate>
+      <div class="form-card" id="formCard">
+
+        <!-- 1. About you -->
+        <section class="form-section">
+          <div class="fs-head">
+            <span class="fs-num">1</span>
+            <div><h3 class="fs-title">About you</h3><p class="fs-sub">So we can reach you about matches.</p></div>
+          </div>
+          <div class="field"><label class="field-label">Full name <span class="req">*</span></label>
+            <input type="text" class="form-control" name="name" placeholder="Jordan Rivera" required></div>
+          <div class="field"><label class="field-label">Email <span class="req">*</span></label>
+            <input type="email" class="form-control" name="email" placeholder="you@email.com" required></div>
+          <div class="field"><label class="field-label">Phone <span class="opt">(optional)</span></label>
+            <input type="tel" class="form-control w-md" name="phone" placeholder="(555) 555-5555"></div>
+          <div class="field"><label class="field-label">State <span class="req">*</span></label>
+            <input type="text" class="form-control w-md" name="state" placeholder="e.g. Texas" required></div>
+          <div class="field"><label class="field-label">ZIP <span class="opt">(optional)</span></label>
+            <input type="text" class="form-control w-sm" name="zip" placeholder="00000"></div>
+        </section>
+
+        <!-- 2. Where you are today -->
+        <section class="form-section">
+          <div class="fs-head">
+            <span class="fs-num">2</span>
+            <div><h3 class="fs-title">Where you are today</h3><p class="fs-sub">Pick the one that fits best. There's a place here either way.</p></div>
+          </div>
+          <div class="choice-cards">
+            <label class="choice"><input type="radio" name="status" value="professional">
+              <span><span class="c-title">I'm a professional advocate</span><span class="c-sub">I do this as paid or formal work today.</span></span></label>
+            <label class="choice"><input type="radio" name="status" value="informal">
+              <span><span class="c-title">I advocate informally</span><span class="c-sub">Often for my own family or others, not as a job.</span></span></label>
+            <label class="choice"><input type="radio" name="status" value="interested">
+              <span><span class="c-title">I'm not advocating yet, but I want to start</span><span class="c-sub">I've lived this and I'm ready to help other families.</span></span></label>
+          </div>
+        </section>
+
+        <!-- 3. Experience -->
+        <section class="form-section">
+          <div class="fs-head">
+            <span class="fs-num">3</span>
+            <div><h3 class="fs-title">Your experience</h3><p class="fs-sub">However you got it. Lived experience counts.</p></div>
+          </div>
+          <div class="field">
+            <label class="field-label">How long have you been doing this kind of work?</label>
+            <div class="chip-group">
+              <label class="chip"><input type="radio" name="experience" value="exploring"><i class="fa-solid fa-check"></i> Just exploring</label>
+              <label class="chip"><input type="radio" name="experience" value="lt1"><i class="fa-solid fa-check"></i> Under 1 year</label>
+              <label class="chip"><input type="radio" name="experience" value="1-3"><i class="fa-solid fa-check"></i> 1–3 years</label>
+              <label class="chip"><input type="radio" name="experience" value="3-5"><i class="fa-solid fa-check"></i> 3–5 years</label>
+              <label class="chip"><input type="radio" name="experience" value="5-10"><i class="fa-solid fa-check"></i> 5–10 years</label>
+              <label class="chip"><input type="radio" name="experience" value="10+"><i class="fa-solid fa-check"></i> 10+ years</label>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. Type of advocacy -->
+        <section class="form-section">
+          <div class="fs-head">
+            <span class="fs-num">4</span>
+            <div><h3 class="fs-title">Type of family advocacy you do</h3><p class="fs-sub">Choose all that apply. If you're just starting, pick the areas you'd want to focus on.</p></div>
+          </div>
+          <div class="chip-group">
+            <label class="chip"><input type="checkbox" name="areas" value="special-ed"><i class="fa-solid fa-check"></i> Special education &amp; IEPs</label>
+            <label class="chip"><input type="checkbox" name="areas" value="insurance"><i class="fa-solid fa-check"></i> Insurance &amp; Medicaid</label>
+            <label class="chip"><input type="checkbox" name="areas" value="diagnosis"><i class="fa-solid fa-check"></i> Diagnosis &amp; healthcare</label>
+            <label class="chip"><input type="checkbox" name="areas" value="early-intervention"><i class="fa-solid fa-check"></i> Early intervention</label>
+            <label class="chip"><input type="checkbox" name="areas" value="behavioral"><i class="fa-solid fa-check"></i> Behavioral &amp; mental health</label>
+            <label class="chip"><input type="checkbox" name="areas" value="legal"><i class="fa-solid fa-check"></i> Legal &amp; guardianship</label>
+            <label class="chip"><input type="checkbox" name="areas" value="transition"><i class="fa-solid fa-check"></i> Transition to adulthood</label>
+            <label class="chip"><input type="checkbox" name="areas" value="peer"><i class="fa-solid fa-check"></i> Peer &amp; emotional support</label>
+            <label class="chip"><input type="checkbox" name="areas" value="other" data-reveal-target="adv-area-other"><i class="fa-solid fa-check"></i> Something else</label>
+          </div>
+          <div class="reveal" id="adv-area-other">
+            <input type="text" class="form-control" name="areas_other" placeholder="Tell us what kind of advocacy you focus on">
+          </div>
+        </section>
+
+        <!-- 5. Credentials -->
+        <section class="form-section">
+          <div class="fs-head">
+            <span class="fs-num">5</span>
+            <div><h3 class="fs-title">Certifications &amp; credentials</h3><p class="fs-sub">Check any that apply. None of these are required to join.</p></div>
+          </div>
+          <div class="check-list">
+            <label class="check"><input type="checkbox" name="credentials" value="copaa-seat"> COPAA / SEAT advocacy training</label>
+            <label class="check"><input type="checkbox" name="credentials" value="attorney"> Special education or disability attorney</label>
+            <label class="check"><input type="checkbox" name="credentials" value="bcba"> BCBA (behavior analyst)</label>
+            <label class="check"><input type="checkbox" name="credentials" value="clinician"> Licensed clinician (LCSW, LMFT, psychologist)</label>
+            <label class="check"><input type="checkbox" name="credentials" value="sped-teacher"> Special education teacher / certified</label>
+            <label class="check"><input type="checkbox" name="credentials" value="parent-center"> Parent center / PTI experience</label>
+            <label class="check"><input type="checkbox" name="credentials" value="bcpa"> Board Certified Patient Advocate (BCPA)</label>
+            <label class="check"><input type="checkbox" name="credentials" value="lived-experience"> Lived experience as a parent / caregiver</label>
+            <label class="check"><input type="checkbox" name="credentials" value="none"> None yet</label>
+            <label class="check"><input type="checkbox" name="credentials" value="other" data-reveal-target="adv-cred-other"> Other</label>
+          </div>
+          <div class="reveal" id="adv-cred-other">
+            <input type="text" class="form-control" name="credentials_other" placeholder="Tell us about your other credentials">
+          </div>
+        </section>
+
+        <!-- 6. How you offer support -->
+        <section class="form-section">
+          <div class="fs-head">
+            <span class="fs-num">6</span>
+            <div><h3 class="fs-title">How you offer support</h3><p class="fs-sub">You set your own terms. This just helps us match well.</p></div>
+          </div>
+          <div class="field">
+            <label class="field-label">Do you offer your help free, for pay, or both?</label>
+            <div class="chip-group">
+              <label class="chip"><input type="radio" name="pay" value="free"><i class="fa-solid fa-check"></i> Free</label>
+              <label class="chip"><input type="radio" name="pay" value="paid"><i class="fa-solid fa-check"></i> For pay</label>
+              <label class="chip"><input type="radio" name="pay" value="both"><i class="fa-solid fa-check"></i> Both</label>
+              <label class="chip"><input type="radio" name="pay" value="unsure"><i class="fa-solid fa-check"></i> Not sure yet</label>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label">Roughly how many families could you take on now?</label>
+            <div class="chip-group">
+              <label class="chip"><input type="radio" name="capacity" value="unsure"><i class="fa-solid fa-check"></i> Not sure</label>
+              <label class="chip"><input type="radio" name="capacity" value="1-2"><i class="fa-solid fa-check"></i> 1–2</label>
+              <label class="chip"><input type="radio" name="capacity" value="3-5"><i class="fa-solid fa-check"></i> 3–5</label>
+              <label class="chip"><input type="radio" name="capacity" value="6+"><i class="fa-solid fa-check"></i> 6+</label>
+            </div>
+          </div>
+        </section>
+
+        <!-- 7. Anything else -->
+        <section class="form-section">
+          <div class="fs-head">
+            <span class="fs-num">7</span>
+            <div><h3 class="fs-title">Anything else</h3><p class="fs-sub">Your approach, your story, what makes you a good fit. Optional.</p></div>
+          </div>
+          <div class="field">
+            <textarea class="form-control" name="about" placeholder="Tell families a little about you and how you help."></textarea>
+          </div>
+        </section>
+
+        <!-- 8. Program interest (light opt-in) -->
+        <section class="form-section">
+          <div class="fs-head">
+            <span class="fs-num">8</span>
+            <div><h3 class="fs-title">Stay in the loop</h3><p class="fs-sub">Optional. Tell us what you'd like to hear more about.</p></div>
+          </div>
+          <div class="optin">
+            <label class="check"><input type="checkbox" name="interest" value="certification">
+              <span><strong>I'm interested in the certification program</strong>
+              <small>For advocates who want training and a recognized credential to get started.</small></span></label>
+            <label class="check"><input type="checkbox" name="interest" value="referral">
+              <span><strong>I'm interested in the preferred referral program</strong>
+              <small>For experienced advocates who want priority matches with families.</small></span></label>
+          </div>
+        </section>
+
+        <!-- Submit -->
+        <div class="submit-bar">
+          <span class="submit-note"><i class="fa-solid fa-lock"></i> Your information is private and never sold. We'll only use it to match you with families.</span>
+          <button type="submit" class="btn btn-accent btn-lg-x"><i class="fa-solid fa-paper-plane me-2"></i>Signup as Advocate</button>
+        </div>
+      </div>
+
+      <!-- Success state -->
+      <div class="form-card success" id="successPanel">
+        <div class="ic"><i class="fa-solid fa-heart"></i></div>
+        <h2>Welcome to the network</h2>
+        <p>Thanks for stepping up for families who need you. We've got your details and we'll be in touch as we match you with families in your areas.</p>
+        <p class="mt-4"><a href="index.html" class="btn btn-ghost"><i class="fa-solid fa-arrow-left me-2"></i>Back to home</a></p>
+      </div>
+    </form>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="container container-narrow">
+    <p>Family Advocacy is part of SupportNow, the Official Family Support Platform.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // "Other / Something else" checkboxes reveal a follow-up input when selected.
+  document.querySelectorAll('[data-reveal-target]').forEach(function(input){
+    var target = document.getElementById(input.getAttribute('data-reveal-target'));
+    if(!target) return;
+    var sync = function(){
+      target.classList.toggle('open', input.checked);
+      if(!input.checked){ var f = target.querySelector('input,textarea'); if(f) f.value=''; }
+    };
+    input.addEventListener('change', sync);
+    sync();
+  });
+
+  // Prototype only: no backend. Validate, then show the success state.
+  document.getElementById('advocateForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!this.checkValidity()){ this.reportValidity(); return; }
+    document.getElementById('formCard').style.display='none';
+    document.getElementById('successPanel').style.display='block';
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+</script>
+</body>
+</html>

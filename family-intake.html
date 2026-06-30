@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find an advocate | SupportNow Family Advocacy</title>
+<meta name="description" content="Find an advocate who's been exactly where you are. Tell us what you're navigating and we'll connect you with someone who can help, free or affordable.">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<link href="intake.css" rel="stylesheet">
+</head>
+<!-- brand-blue accent for the family side (mirrors the "I'm a family" door) -->
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <nav class="container container-narrow d-flex align-items-center justify-content-between py-3">
+    <a href="index.html" class="brand-lockup">
+      <img src="logo.svg" alt="SupportNow" class="brand-logo">
+      <span class="vertical-tag d-none d-sm-inline">Family<br>Advocacy</span>
+    </a>
+    <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to home</a>
+  </nav>
+</div>
+
+<!-- HERO -->
+<header class="intake-hero">
+  <div class="container container-narrow text-center">
+    <span class="eyebrow"><i class="fa-solid fa-people-roof"></i> For families</span>
+    <h1 class="text-balance">Find an advocate who's been exactly where you are</h1>
+    <p class="byline">
+      Tell us what you're navigating and we'll connect you with someone who can help, in the area you need most.
+    </p>
+    <div class="trust-row">
+      <span><i class="fa-solid fa-circle-check"></i> Always free to request a match</span>
+      <span><i class="fa-solid fa-circle-check"></i> Private and confidential</span>
+      <span><i class="fa-solid fa-circle-check"></i> Takes about 5 minutes</span>
+    </div>
+  </div>
+</header>
+
+<!-- FORM -->
+<main class="form-wrap">
+  <div class="container container-narrow">
+    <form id="familyForm" novalidate>
+      <div class="form-card" id="formCard">
+
+        <!-- 1. About you -->
+        <section class="form-section">
+          <div class="fs-head">
+            <span class="fs-num">1</span>
+            <div><h3 class="fs-title">About you</h3><p class="fs-sub">So we can reach you about your match.</p></div>
+          </div>
+          <div class="field"><label class="field-label">Your name <span class="req">*</span></label>
+            <input type="text" class="form-control" name="name" placeholder="Sam Carter" required></div>
+          <div class="field"><label class="field-label">Email <span class="req">*</span></label>
+            <input type="email" class="form-control" name="email" placeholder="you@email.com" required></div>
+          <div class="field"><label class="field-label">Phone <span class="opt">(optional)</span></label>
+            <input type="tel" class="form-control w-md" name="phone" placeholder="(555) 555-5555"></div>
+          <div class="field"><label class="field-label">State <span class="req">*</span></label>
+            <input type="text" class="form-control w-md" name="state" placeholder="e.g. Ohio" required></div>
+          <div class="field"><label class="field-label">ZIP <span class="opt">(optional)</span></label>
+            <input type="text" class="form-control w-sm" name="zip" placeholder="00000"></div>
+        </section>
+
+        <!-- 2. About your child -->
+        <section class="form-section">
+          <div class="fs-head">
+            <span class="fs-num">2</span>
+            <div><h3 class="fs-title">About your child</h3><p class="fs-sub">Just enough to find the right advocate. Share only what you're comfortable with.</p></div>
+          </div>
+          <div class="field">
+            <label class="field-label">Your child's age or stage</label>
+            <div class="chip-group">
+              <label class="chip"><input type="radio" name="age" value="under-3"><i class="fa-solid fa-check"></i> Under 3</label>
+              <label class="chip"><input type="radio" name="age" value="3-5"><i class="fa-solid fa-check"></i> 3–5</label>
+              <label class="chip"><input type="radio" name="age" value="6-10"><i class="fa-solid fa-check"></i> 6–10</label>
+              <label class="chip"><input type="radio" name="age" value="11-13"><i class="fa-solid fa-check"></i> 11–13</label>
+              <label class="chip"><input type="radio" name="age" value="14-17"><i class="fa-solid fa-check"></i> 14–17</label>
+              <label class="chip"><input type="radio" name="age" value="18+"><i class="fa-solid fa-check"></i> 18+</label>
+              <label class="chip"><input type="radio" name="age" value="multiple"><i class="fa-solid fa-check"></i> More than one child</label>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label">Diagnosis or disability area <span class="opt">(optional, check any that apply)</span></label>
+            <div class="check-list">
+              <label class="check"><input type="checkbox" name="diagnosis" value="autism"> Autism spectrum</label>
+              <label class="check"><input type="checkbox" name="diagnosis" value="adhd"> ADHD</label>
+              <label class="check"><input type="checkbox" name="diagnosis" value="learning"> Learning disability (e.g. dyslexia)</label>
+              <label class="check"><input type="checkbox" name="diagnosis" value="speech"> Speech / language</label>
+              <label class="check"><input type="checkbox" name="diagnosis" value="developmental"> Developmental / intellectual</label>
+              <label class="check"><input type="checkbox" name="diagnosis" value="physical"> Physical / medical / complex</label>
+              <label class="check"><input type="checkbox" name="diagnosis" value="mental-health"> Mental / behavioral health</label>
+              <label class="check"><input type="checkbox" name="diagnosis" value="seeking"> Still seeking a diagnosis</label>
+              <label class="check"><input type="checkbox" name="diagnosis" value="prefer-not"> Prefer not to say</label>
+              <label class="check"><input type="checkbox" name="diagnosis" value="other" data-reveal-target="fam-dx-other"> Other</label>
+            </div>
+            <div class="reveal" id="fam-dx-other">
+              <input type="text" class="form-control" name="diagnosis_other" placeholder="Tell us a bit more">
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. What you're looking for -->
+        <section class="form-section">
+          <div class="fs-head">
+            <span class="fs-num">3</span>
+            <div><h3 class="fs-title">What kind of advocacy are you looking for?</h3><p class="fs-sub">Choose all that apply. We'll match you to advocates who specialize in these.</p></div>
+          </div>
+          <div class="chip-group">
+            <label class="chip"><input type="checkbox" name="areas" value="special-ed"><i class="fa-solid fa-check"></i> Special education &amp; IEPs</label>
+            <label class="chip"><input type="checkbox" name="areas" value="insurance"><i class="fa-solid fa-check"></i> Insurance &amp; Medicaid</label>
+            <label class="chip"><input type="checkbox" name="areas" value="diagnosis"><i class="fa-solid fa-check"></i> Diagnosis &amp; healthcare</label>
+            <label class="chip"><input type="checkbox" name="areas" value="early-intervention"><i class="fa-solid fa-check"></i> Early intervention</label>
+            <label class="chip"><input type="checkbox" name="areas" value="behavioral"><i class="fa-solid fa-check"></i> Behavioral &amp; mental health</label>
+            <label class="chip"><input type="checkbox" name="areas" value="legal"><i class="fa-solid fa-check"></i> Legal &amp; guardianship</label>
+            <label class="chip"><input type="checkbox" name="areas" value="transition"><i class="fa-solid fa-check"></i> Transition to adulthood</label>
+            <label class="chip"><input type="checkbox" name="areas" value="peer"><i class="fa-solid fa-check"></i> Peer &amp; emotional support</label>
+            <label class="chip"><input type="checkbox" name="areas" value="other" data-reveal-target="fam-area-other"><i class="fa-solid fa-check"></i> Something else</label>
+          </div>
+          <div class="reveal" id="fam-area-other">
+            <input type="text" class="form-control" name="areas_other" placeholder="Tell us what kind of support you're looking for">
+          </div>
+        </section>
+
+        <!-- 4. Your situation -->
+        <section class="form-section">
+          <div class="fs-head">
+            <span class="fs-num">4</span>
+            <div><h3 class="fs-title">Your situation</h3><p class="fs-sub">In your own words. The more we understand, the better the match.</p></div>
+          </div>
+          <div class="field">
+            <textarea class="form-control" name="situation" placeholder="Tell us what you're navigating right now and how we can help." required></textarea>
+          </div>
+        </section>
+
+        <!-- 5. Cost -->
+        <section class="form-section">
+          <div class="fs-head">
+            <span class="fs-num">5</span>
+            <div><h3 class="fs-title">Paying for support</h3><p class="fs-sub">Requesting a match is always free. This just helps us match you well.</p></div>
+          </div>
+          <div class="field">
+            <label class="field-label">Are you able to pay for advocacy, or do you need free support?</label>
+            <div class="chip-group">
+              <label class="chip"><input type="radio" name="budget" value="free-only"><i class="fa-solid fa-check"></i> I need free support</label>
+              <label class="chip"><input type="radio" name="budget" value="open-to-paid"><i class="fa-solid fa-check"></i> I'm open to paying</label>
+              <label class="chip"><input type="radio" name="budget" value="unsure"><i class="fa-solid fa-check"></i> Not sure yet</label>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. Urgency -->
+        <section class="form-section">
+          <div class="fs-head">
+            <span class="fs-num">6</span>
+            <div><h3 class="fs-title">How urgent is it?</h3><p class="fs-sub">We'll prioritize families who need help right away.</p></div>
+          </div>
+          <div class="choice-cards">
+            <label class="choice"><input type="radio" name="urgency" value="urgent">
+              <span><span class="c-title">Urgent</span><span class="c-sub">I need help within the next few days.</span></span></label>
+            <label class="choice"><input type="radio" name="urgency" value="soon">
+              <span><span class="c-title">Soon</span><span class="c-sub">Within the next few weeks.</span></span></label>
+            <label class="choice"><input type="radio" name="urgency" value="planning">
+              <span><span class="c-title">Planning ahead</span><span class="c-sub">No rush, but I want support lined up.</span></span></label>
+            <label class="choice"><input type="radio" name="urgency" value="exploring">
+              <span><span class="c-title">Just exploring</span><span class="c-sub">Seeing what's out there for now.</span></span></label>
+          </div>
+        </section>
+
+        <!-- 7. Stay in the loop -->
+        <section class="form-section">
+          <div class="fs-head">
+            <span class="fs-num">7</span>
+            <div><h3 class="fs-title">Stay in the loop</h3><p class="fs-sub">Optional.</p></div>
+          </div>
+          <div class="optin">
+            <label class="check"><input type="checkbox" name="interest" value="platform">
+              <span><strong>Keep me posted on SupportNow tools and coaching for my family</strong>
+              <small>Helpful resources beyond your advocate match.</small></span></label>
+          </div>
+        </section>
+
+        <!-- Submit -->
+        <div class="submit-bar">
+          <span class="submit-note"><i class="fa-solid fa-lock"></i> Your story is private and confidential. You decide what's shared with an advocate.</span>
+          <button type="submit" class="btn btn-accent btn-lg-x"><i class="fa-solid fa-hand-holding-heart me-2"></i>Find an Advocate</button>
+        </div>
+      </div>
+
+      <!-- Success state -->
+      <div class="form-card success" id="successPanel">
+        <div class="ic"><i class="fa-solid fa-circle-check"></i></div>
+        <h2>You're not alone in this anymore</h2>
+        <p>Thank you for trusting us with your story. We've received your request and we'll reach out as we find an advocate who fits what you're navigating.</p>
+        <p class="mt-4"><a href="index.html" class="btn btn-ghost"><i class="fa-solid fa-arrow-left me-2"></i>Back to home</a></p>
+      </div>
+    </form>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="container container-narrow">
+    <p>Family Advocacy is part of SupportNow, the Official Family Support Platform.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // "Other / Something else" checkboxes reveal a follow-up input when selected.
+  document.querySelectorAll('[data-reveal-target]').forEach(function(input){
+    var target = document.getElementById(input.getAttribute('data-reveal-target'));
+    if(!target) return;
+    var sync = function(){
+      target.classList.toggle('open', input.checked);
+      if(!input.checked){ var f = target.querySelector('input,textarea'); if(f) f.value=''; }
+    };
+    input.addEventListener('change', sync);
+    sync();
+  });
+
+  // Prototype only: no backend. Validate, then show the success state.
+  document.getElementById('familyForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!this.checkValidity()){ this.reportValidity(); return; }
+    document.getElementById('formCard').style.display='none';
+    document.getElementById('successPanel').style.display='block';
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SupportNow Family Advocacy | You shouldn't have to navigate this alone</title>
+<meta name="description" content="We connect families raising children with disabilities to advocates who have been there. Get matched for help with IEPs, insurance, diagnosis, and more. Free and affordable.">
+
+<!-- Bootstrap 5.3 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Font Awesome 6.5.1 -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<!-- DM Sans (SupportNow brand typeface) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  /* SupportNow brand tokens (from supportnow-2.0/styleguide.html) */
+  --brand:#188aec; --brand-dark:#1274c9; --brand-light:#4da6f0;
+  --brand-bg:#eef6fe; --navy:#1b2f80;
+  --give:#059669; --give-dark:#047857; --give-tint:#ecfdf5;
+  --amber:#d97706; --amber-tint:#fffbeb;
+  --rose:#db2777; --rose-tint:#fdf2f8;
+
+  /* Neutrals */
+  --ink:#111827; --body:#374151; --secondary:#6b7280; --muted:#9ca3af;
+  --border:#e8eaf0; --border-light:#f1f2f6;
+  --bg:#fbfaf8; --card:#ffffff;
+
+  /* Warm hero wash */
+  --warm-1:#fff6ef; --warm-2:#fdf1f4; --warm-3:#eef6fe;
+  --shadow:0 1px 3px rgba(17,24,39,.05);
+  --shadow-md:0 12px 32px -12px rgba(27,47,128,.18);
+  --shadow-lg:0 24px 60px -20px rgba(27,47,128,.28);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'DM Sans',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  color:var(--body); background:var(--bg);
+  font-size:16.5px; line-height:1.65; -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4,.display{color:var(--ink); font-weight:700; letter-spacing:-.02em; line-height:1.12}
+a{text-decoration:none}
+.container-narrow{max-width:1140px}
+.eyebrow{
+  font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.12em;
+  color:var(--brand); display:inline-flex; align-items:center; gap:8px;
+}
+.eyebrow.give{color:var(--give-dark)}
+.text-balance{text-wrap:balance}
+
+/* Nav */
+.nav-wrap{
+  position:sticky; top:0; z-index:1000; background:rgba(251,250,248,.85);
+  backdrop-filter:saturate(180%) blur(12px); border-bottom:1px solid var(--border-light);
+}
+.brand-lockup{display:flex; align-items:center; gap:11px}
+.brand-logo{height:28px; width:auto; display:block; flex-shrink:0}
+.footer .brand-logo{height:26px}
+.wordmark{font-size:21px; font-weight:700; letter-spacing:-.02em; line-height:1}
+.wordmark b{color:var(--brand); font-weight:700}
+.wordmark em{color:var(--navy); font-style:normal}
+.vertical-tag{
+  font-size:11px; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
+  color:var(--secondary); border-left:1px solid var(--border); margin-left:9px;
+  padding-left:9px; line-height:1;
+}
+.nav-link-x{color:var(--body); font-weight:600; font-size:14px; padding:7px 9px; border-radius:8px; white-space:nowrap}
+.nav-link-x:hover{color:var(--brand); background:var(--brand-bg)}
+
+/* Buttons */
+.btn{font-weight:600; border-radius:50px; padding:13px 26px; font-size:15.5px; transition:.18s; border:1.5px solid transparent; white-space:nowrap}
+.btn-lg-x{padding:16px 32px; font-size:16.5px}
+.btn-sm-x{padding:8px 16px; font-size:13.5px}
+.btn-brand{background:var(--brand); color:#fff}
+.btn-brand:hover{background:var(--brand-dark); color:#fff; transform:translateY(-1px); box-shadow:0 10px 24px -10px rgba(24,138,236,.6)}
+.btn-give{background:var(--give); color:#fff}
+.btn-give:hover{background:var(--give-dark); color:#fff; transform:translateY(-1px); box-shadow:0 10px 24px -10px rgba(5,150,105,.55)}
+.btn-give-outline{background:#fff; color:var(--give-dark); border-color:var(--give)}
+.btn-give-outline:hover{background:var(--give-tint); color:var(--give-dark); border-color:var(--give); transform:translateY(-1px)}
+.btn-ghost{background:#fff; color:var(--ink); border-color:var(--border)}
+.btn-ghost:hover{border-color:var(--brand); color:var(--brand)}
+.btn-white{background:#fff; color:var(--navy)}
+.btn-white:hover{background:#fff; color:var(--brand); transform:translateY(-1px)}
+.btn-outline-white{background:transparent; color:#fff; border-color:rgba(255,255,255,.5)}
+.btn-outline-white:hover{background:rgba(255,255,255,.12); color:#fff; border-color:#fff}
+
+/* Hero */
+.hero{
+  position:relative; overflow:hidden;
+  background:
+    radial-gradient(1200px 520px at 12% -10%, var(--warm-1) 0%, transparent 55%),
+    radial-gradient(1100px 520px at 95% 0%, var(--warm-3) 0%, transparent 55%),
+    radial-gradient(900px 600px at 70% 110%, var(--warm-2) 0%, transparent 60%);
+  padding:84px 0 72px;
+}
+.hero h1{font-size:clamp(2.4rem,5vw,3.7rem)}
+.hero .lede{font-size:clamp(1.05rem,1.6vw,1.28rem); color:var(--body); max-width:620px}
+.pill-badge{
+  display:inline-flex; align-items:center; gap:9px; background:#fff; border:1px solid var(--border);
+  border-radius:50px; padding:7px 16px 7px 8px; font-size:13.5px; font-weight:600; color:var(--secondary);
+  box-shadow:var(--shadow);
+}
+.pill-badge .dot{width:9px; height:9px; border-radius:50%; background:var(--give); box-shadow:0 0 0 4px var(--give-tint)}
+
+/* Two-door cards */
+.door{
+  display:block; background:var(--card); border:1px solid var(--border); border-radius:20px;
+  padding:26px 26px 24px; box-shadow:var(--shadow); transition:.2s; height:100%; position:relative; overflow:hidden;
+}
+.door::before{content:""; position:absolute; inset:0 0 auto 0; height:4px; background:var(--brand)}
+.door.give::before{background:var(--give)}
+.door:hover{transform:translateY(-4px); box-shadow:var(--shadow-lg); border-color:transparent}
+.door-icon{
+  width:52px; height:52px; border-radius:15px; display:flex; align-items:center; justify-content:center;
+  font-size:22px; color:#fff; background:var(--brand); margin-bottom:16px;
+}
+.door.give .door-icon{background:var(--give)}
+.door h3{font-size:1.32rem; margin-bottom:6px}
+.door p{font-size:15px; color:var(--secondary); margin-bottom:18px}
+.door .door-cta{font-weight:700; font-size:15px; color:var(--brand); display:inline-flex; align-items:center; gap:8px}
+.door.give .door-cta{color:var(--give-dark)}
+.door:hover .door-cta i{transform:translateX(4px)}
+.door .door-cta i{transition:.18s}
+.door .door-note{font-size:12.5px; color:var(--muted); margin-top:14px; display:flex; align-items:center; gap:7px}
+
+/* Trust strip */
+.trust-strip{border-top:1px solid var(--border-light); border-bottom:1px solid var(--border-light); background:#fff}
+.stat-num{font-size:1.9rem; font-weight:700; color:var(--navy); line-height:1; letter-spacing:-.02em}
+.stat-lbl{font-size:13.5px; color:var(--secondary); font-weight:500}
+
+/* Sections */
+section{scroll-margin-top:80px}
+.sec{padding:84px 0}
+.sec-head{max-width:680px; margin:0 auto 52px; text-align:center}
+.sec-head h2{font-size:clamp(1.9rem,3.2vw,2.6rem); margin:14px 0 12px}
+.sec-head p{font-size:1.08rem; color:var(--secondary)}
+
+/* Problem */
+.problem{background:linear-gradient(180deg,#fff 0%,var(--warm-1) 100%)}
+.problem-card{
+  background:#fff; border:1px solid var(--border); border-radius:16px; padding:22px 22px;
+  box-shadow:var(--shadow); height:100%;
+}
+.problem-card i{color:var(--brand); font-size:18px; margin-right:10px}
+.problem-card h4{font-size:1.06rem; margin-bottom:4px; display:flex; align-items:center}
+.problem-card p{font-size:14.5px; color:var(--secondary); margin:0}
+
+/* Steps */
+.step{text-align:center; padding:0 12px}
+.step-num{
+  width:56px; height:56px; border-radius:50%; margin:0 auto 18px; display:flex; align-items:center; justify-content:center;
+  font-size:21px; font-weight:700; color:#fff; background:var(--brand); box-shadow:0 10px 22px -10px rgba(24,138,236,.6);
+}
+.step h4{font-size:1.18rem; margin-bottom:8px}
+.step p{font-size:15px; color:var(--secondary)}
+.step-connect{position:relative}
+@media(min-width:768px){
+  .step-connect::after{
+    content:""; position:absolute; top:28px; left:60%; width:80%; height:2px;
+    background:repeating-linear-gradient(90deg,var(--border) 0 8px,transparent 8px 16px);
+  }
+}
+
+/* Subject areas */
+.areas{background:#fff}
+.area-card{
+  display:flex; gap:14px; align-items:flex-start; padding:18px 18px; border:1px solid var(--border);
+  border-radius:14px; background:var(--card); transition:.18s; height:100%;
+}
+.area-card:hover{border-color:var(--brand-light); box-shadow:var(--shadow-md); transform:translateY(-2px)}
+.area-ic{
+  width:42px; height:42px; border-radius:12px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-size:17px; background:var(--brand-bg); color:var(--brand);
+}
+.area-card h4{font-size:1rem; margin:0 0 3px}
+.area-card p{font-size:13.5px; color:var(--secondary); margin:0; line-height:1.5}
+
+/* Advocate band */
+.adv{background:linear-gradient(180deg,var(--give-tint) 0%,#fff 100%)}
+.adv-lead{max-width:720px; margin:0 auto}
+.adv-card{
+  background:#fff; border:1px solid var(--border); border-radius:20px; padding:32px 30px; height:100%;
+  box-shadow:var(--shadow); position:relative; overflow:hidden;
+}
+.adv-card .tag{
+  display:inline-block; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.08em;
+  padding:5px 12px; border-radius:50px; margin-bottom:16px;
+}
+.tag-give{background:var(--give-tint); color:var(--give-dark)}
+.tag-amber{background:var(--amber-tint); color:var(--amber)}
+.adv-card h3{font-size:1.4rem; margin-bottom:10px}
+.adv-card .who{font-size:14px; color:var(--secondary); font-style:italic; margin-bottom:18px}
+.adv-card ul{list-style:none; padding:0; margin:0 0 24px}
+.adv-card li{font-size:15px; color:var(--body); padding:8px 0 8px 30px; position:relative}
+.adv-card li i{position:absolute; left:0; top:11px; color:var(--give); font-size:15px}
+.adv-card.amber li i{color:var(--amber)}
+.callout-inclusive{
+  background:#fff; border:1px solid var(--border); border-left:4px solid var(--give);
+  border-radius:14px; padding:20px 24px; box-shadow:var(--shadow); max-width:760px; margin:0 auto 44px;
+}
+.callout-inclusive i{color:var(--give); font-size:20px}
+
+/* Who's behind it */
+.trust-sec{background:var(--navy); color:#fff}
+.trust-sec h2{color:#fff}
+.trust-sec .lede{color:rgba(255,255,255,.78); font-size:1.1rem}
+.trust-feat{display:flex; gap:14px; align-items:flex-start}
+.trust-feat .ic{width:44px; height:44px; border-radius:12px; background:rgba(255,255,255,.12); color:#fff;
+  display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0}
+.trust-feat h4{color:#fff; font-size:1.06rem; margin:0 0 3px}
+.trust-feat p{color:rgba(255,255,255,.7); font-size:14.5px; margin:0}
+
+/* Final CTA */
+.final{padding:88px 0; background:
+  radial-gradient(900px 460px at 20% 0%, var(--warm-3) 0%, transparent 60%),
+  radial-gradient(900px 460px at 90% 100%, var(--warm-2) 0%, transparent 60%), var(--bg);}
+
+/* Footer */
+.footer{background:#fff; border-top:1px solid var(--border-light); padding:40px 0 32px}
+.footer a{color:var(--secondary); font-size:14px}
+.footer a:hover{color:var(--brand)}
+.footer .small-print{font-size:13px; color:var(--muted)}
+
+/* misc */
+.lift:hover{transform:translateY(-2px)}
+.hr-soft{border:none; border-top:1px solid var(--border-light); margin:0}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="nav-wrap">
+  <nav class="container container-narrow d-flex align-items-center justify-content-between py-3">
+    <a href="#top" class="brand-lockup">
+      <img src="logo.svg" alt="SupportNow" class="brand-logo">
+      <span class="vertical-tag d-none d-sm-inline">Family<br>Advocacy</span>
+    </a>
+    <div class="d-none d-xl-flex align-items-center gap-1">
+      <a href="#how" class="nav-link-x">How it works</a>
+      <a href="#areas" class="nav-link-x">Areas of support</a>
+      <a href="#advocates" class="nav-link-x">For advocates</a>
+      <a href="#about" class="nav-link-x">About</a>
+    </div>
+    <div class="d-flex align-items-center gap-2">
+      <a href="advocate-intake.html" class="btn btn-give-outline btn-sm-x d-none d-md-inline">Signup as Advocate</a>
+      <a href="family-intake.html" class="btn btn-brand btn-sm-x">Find an Advocate</a>
+    </div>
+  </nav>
+</div>
+
+<a id="top"></a>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container container-narrow">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <span class="pill-badge mb-4"><span class="dot"></span> Family Advocacy, part of SupportNow</span>
+        <h1 class="text-balance mb-3">You shouldn't have to navigate this alone.</h1>
+        <p class="lede mb-4">
+          We match families raising children with disabilities to <strong>advocates who have been there</strong>.
+          Get help with IEPs, insurance, diagnosis, therapies, and more. Free or affordable, based on what you need.
+        </p>
+        <div class="d-flex flex-wrap gap-3 mb-3">
+          <a href="family-intake.html" class="btn btn-brand btn-lg-x"><i class="fa-solid fa-hand-holding-heart me-2"></i>Find an Advocate</a>
+          <a href="advocate-intake.html" class="btn btn-give btn-lg-x"><i class="fa-solid fa-people-group me-2"></i>Signup as Advocate</a>
+        </div>
+        <p class="d-flex align-items-center gap-2 mb-0" style="font-size:13.5px;color:var(--muted)">
+          <i class="fa-solid fa-shield-heart" style="color:var(--give)"></i>
+          Free to get matched. Your information stays private.
+        </p>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <a href="family-intake.html" class="door">
+              <div class="door-icon"><i class="fa-solid fa-people-roof"></i></div>
+              <h3>I'm a family</h3>
+              <p>Get matched with an advocate who understands your child and your fight.</p>
+              <span class="door-cta">Find an Advocate <i class="fa-solid fa-arrow-right"></i></span>
+              <div class="door-note"><i class="fa-solid fa-circle-check"></i> Always free to request a match</div>
+            </a>
+          </div>
+          <div class="col-sm-6">
+            <a href="advocate-intake.html" class="door give">
+              <div class="door-icon"><i class="fa-solid fa-hands-holding-child"></i></div>
+              <h3>I want to help</h3>
+              <p>You can advocate today or be just getting started. Either way, there's a place for you.</p>
+              <span class="door-cta">Signup as Advocate <i class="fa-solid fa-arrow-right"></i></span>
+              <div class="door-note"><i class="fa-solid fa-circle-check"></i> Offer support free or for pay</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="container container-narrow py-4">
+    <div class="row text-center g-3 align-items-center">
+      <div class="col-6 col-md-3">
+        <div class="stat-num">100s</div>
+        <div class="stat-lbl">of families navigate this every day</div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-num">1-on-1</div>
+        <div class="stat-lbl">real matches, not a directory</div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-num">Free<span style="font-size:1rem;font-weight:600;color:var(--secondary)"> &amp; paid</span></div>
+        <div class="stat-lbl">help, based on what you need</div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-num">U.S.</div>
+        <div class="stat-lbl">families and advocates nationwide</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="sec problem" id="problem">
+  <div class="container container-narrow">
+    <div class="sec-head">
+      <span class="eyebrow"><i class="fa-solid fa-heart"></i> We know how heavy this is</span>
+      <h2 class="text-balance">If any of this sounds familiar, you're in the right place</h2>
+      <p>Raising a child with a disability often means learning systems no one prepared you for. Usually while you're exhausted. Usually alone.</p>
+    </div>
+    <div class="row g-3">
+      <div class="col-md-6 col-lg-4">
+        <div class="problem-card">
+          <h4><i class="fa-solid fa-school"></i> The IEP fight</h4>
+          <p>You walk into another meeting unsure of your rights, fighting for services your child is owed.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="problem-card">
+          <h4><i class="fa-solid fa-file-medical"></i> Insurance and Medicaid mazes</h4>
+          <p>Denials, appeals, waiver waitlists, and prior authorizations. A full job on top of everything else.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="problem-card">
+          <h4><i class="fa-solid fa-magnifying-glass"></i> The diagnosis journey</h4>
+          <p>Waiting months for evaluations. Trying to understand what a diagnosis means and what comes next.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="problem-card">
+          <h4><i class="fa-solid fa-puzzle-piece"></i> Finding the right therapies</h4>
+          <p>Speech, OT, ABA, behavioral support. Sorting good help from noise, and getting it covered.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="problem-card">
+          <h4><i class="fa-solid fa-graduation-cap"></i> Transition to adulthood</h4>
+          <p>Guardianship, benefits, housing, and work. The cliff at 18 that no one helps you plan for.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="problem-card">
+          <h4><i class="fa-solid fa-user-group"></i> The isolation</h4>
+          <p>The feeling that no one around you really gets it, and no clear person to turn to who has been here.</p>
+        </div>
+      </div>
+    </div>
+    <p class="text-center mt-5 mb-0" style="font-size:1.12rem;color:var(--ink);font-weight:600">
+      An advocate has already walked this road. They will walk the next stretch with you.
+    </p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="sec" id="how">
+  <div class="container container-narrow">
+    <div class="sec-head">
+      <span class="eyebrow"><i class="fa-solid fa-route"></i> How it works</span>
+      <h2>Getting support takes three steps</h2>
+      <p>No endless directories. No cold calling strangers. Tell us what you're facing and we make the connection.</p>
+    </div>
+    <div class="row g-4 g-md-2">
+      <div class="col-md-4 step-connect">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h4>Tell us your story</h4>
+          <p>A short, private intake. Your child's needs and the help you're looking for.</p>
+        </div>
+      </div>
+      <div class="col-md-4 step-connect">
+        <div class="step">
+          <div class="step-num">2</div>
+          <h4>We find your match</h4>
+          <p>We connect you with an advocate who knows your area, from special education to insurance to diagnosis.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="step">
+          <div class="step-num">3</div>
+          <h4>Get real guidance</h4>
+          <p>Meet one on one and get practical help. Free where it's offered, affordable where it's paid.</p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-5">
+      <a href="family-intake.html" class="btn btn-brand btn-lg-x">Find an Advocate <i class="fa-solid fa-arrow-right ms-1"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- SUBJECT AREAS -->
+<section class="sec areas" id="areas">
+  <div class="container container-narrow">
+    <div class="sec-head">
+      <span class="eyebrow"><i class="fa-solid fa-compass"></i> Areas of support</span>
+      <h2>Find an advocate for what you're facing</h2>
+      <p>Our advocates specialize. Whatever stage you're in, someone knows it well.</p>
+    </div>
+    <div class="row g-3">
+      <div class="col-md-6 col-lg-4">
+        <div class="area-card"><div class="area-ic"><i class="fa-solid fa-school"></i></div>
+          <div><h4>Special education and IEPs</h4><p>504 plans, IEP meetings, evaluations, and knowing your rights.</p></div></div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="area-card"><div class="area-ic"><i class="fa-solid fa-file-shield"></i></div>
+          <div><h4>Insurance and Medicaid</h4><p>Appeals, denials, prior authorizations, and waiver programs.</p></div></div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="area-card"><div class="area-ic"><i class="fa-solid fa-stethoscope"></i></div>
+          <div><h4>Diagnosis and healthcare</h4><p>Getting evaluations, understanding a diagnosis, and coordinating specialists.</p></div></div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="area-card"><div class="area-ic"><i class="fa-solid fa-baby"></i></div>
+          <div><h4>Early intervention</h4><p>Birth to three services, milestones, and getting started early.</p></div></div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="area-card"><div class="area-ic"><i class="fa-solid fa-brain"></i></div>
+          <div><h4>Behavioral and mental health</h4><p>Therapies, behavioral support, and care for the whole family.</p></div></div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="area-card"><div class="area-ic"><i class="fa-solid fa-scale-balanced"></i></div>
+          <div><h4>Legal and guardianship</h4><p>Rights, guardianship, special needs trusts, and benefits planning.</p></div></div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="area-card"><div class="area-ic"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div><h4>Transition to adulthood</h4><p>Life after 18. Benefits, housing, employment, and independence.</p></div></div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="area-card"><div class="area-ic"><i class="fa-solid fa-hand-holding-heart"></i></div>
+          <div><h4>Peer and emotional support</h4><p>A parent who has been there to listen and share what helped.</p></div></div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="area-card" style="border-style:dashed">
+          <div class="area-ic"><i class="fa-solid fa-plus"></i></div>
+          <div><h4>Something else?</h4><p>Tell us in your intake. Our network grows every week.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR ADVOCATES -->
+<section class="sec adv" id="advocates">
+  <div class="container container-narrow">
+    <div class="sec-head">
+      <span class="eyebrow give"><i class="fa-solid fa-hands-holding-circle"></i> For advocates</span>
+      <h2 class="text-balance">Turn what you've been through into help for another family</h2>
+      <p class="adv-lead">The families who need you are looking for someone who gets it. We connect you with them and help you grow your impact.</p>
+    </div>
+
+    <div class="callout-inclusive d-flex gap-3 align-items-start">
+      <i class="fa-solid fa-quote-left mt-1"></i>
+      <div>
+        <strong style="color:var(--ink)">You don't need a title to belong here.</strong>
+        If you've fought school districts, decoded insurance, or found the right care for your own child,
+        you already have what families need. Whether you do this professionally or you're ready to start,
+        we'll help you take the next step.
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="adv-card">
+          <span class="tag tag-give">Already advocating</span>
+          <h3>Grow your reach</h3>
+          <p class="who">For advocates, consultants, and experienced parents already doing the work.</p>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> Get matched with families who need your specialty</li>
+            <li><i class="fa-solid fa-check"></i> Offer your services free, for pay, or both. You set the terms.</li>
+            <li><i class="fa-solid fa-check"></i> Early access to our <strong>preferred referral program</strong></li>
+            <li><i class="fa-solid fa-check"></i> Join a large, trusted network of advocates</li>
+          </ul>
+          <a href="advocate-intake.html" class="btn btn-give"><i class="fa-solid fa-arrow-right-to-bracket me-2"></i>Signup as Advocate</a>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="adv-card">
+          <span class="tag tag-give">Interested in becoming one</span>
+          <h3>Become a family advocate</h3>
+          <p class="who">For parents and caregivers who've lived it and want to help, even if you'd never call yourself an advocate.</p>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> Turn hard won experience into help for families behind you</li>
+            <li><i class="fa-solid fa-check"></i> Tell us where you want to help and we'll guide you in</li>
+            <li><i class="fa-solid fa-check"></i> Be first to hear about our <strong>certification program</strong></li>
+            <li><i class="fa-solid fa-check"></i> Start small, with support. No professional experience required.</li>
+          </ul>
+          <a href="advocate-intake.html" class="btn btn-give-outline"><i class="fa-solid fa-seedling me-2"></i>Signup as Advocate</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO'S BEHIND IT -->
+<section class="sec trust-sec" id="about">
+  <div class="container container-narrow">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5">
+        <span class="eyebrow" style="color:var(--brand-light)"><i class="fa-solid fa-shield-heart"></i> Why trust us</span>
+        <h2 class="mt-2 mb-3 text-balance">Built on a mission, not a fee</h2>
+        <p class="lede mb-4">
+          Family Advocacy is one part of <strong>SupportNow, the Official Family Support Platform</strong>. This is the part that
+          connects you with an advocate. SupportNow is a project of the Go Boldly Foundation, a nonprofit, so our goal
+          isn't to take a cut. It's to make sure no family faces these systems alone.
+        </p>
+        <a href="family-intake.html" class="btn btn-white"><i class="fa-solid fa-hand-holding-heart me-2"></i>Find an Advocate</a>
+      </div>
+      <div class="col-lg-7">
+        <div class="row g-4">
+          <div class="col-sm-6"><div class="trust-feat">
+            <div class="ic"><i class="fa-solid fa-lock"></i></div>
+            <div><h4>Private by default</h4><p>Your story stays confidential. You choose what to share.</p></div>
+          </div></div>
+          <div class="col-sm-6"><div class="trust-feat">
+            <div class="ic"><i class="fa-solid fa-heart"></i></div>
+            <div><h4>Free where it counts</h4><p>Getting matched is always free. Many advocates help at no charge.</p></div>
+          </div></div>
+          <div class="col-sm-6"><div class="trust-feat">
+            <div class="ic"><i class="fa-solid fa-user-check"></i></div>
+            <div><h4>People who get it</h4><p>Advocates who have navigated the same systems you face.</p></div>
+          </div></div>
+          <div class="col-sm-6"><div class="trust-feat">
+            <div class="ic"><i class="fa-solid fa-seedling"></i></div>
+            <div><h4>A growing network</h4><p>New advocates and families join every week.</p></div>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="container container-narrow text-center">
+    <h2 class="text-balance mb-3" style="font-size:clamp(1.9rem,3.4vw,2.7rem)">Two ways forward. Both start here.</h2>
+    <p class="mb-5 mx-auto" style="max-width:560px;color:var(--secondary);font-size:1.1rem">
+      Pick your path below. It takes a few minutes, and it's free to begin.
+    </p>
+    <div class="row g-3 justify-content-center">
+      <div class="col-md-5">
+        <a href="family-intake.html" class="door">
+          <div class="door-icon"><i class="fa-solid fa-people-roof"></i></div>
+          <h3>I need an advocate</h3>
+          <p>Get matched with someone who understands your child and your fight.</p>
+          <span class="door-cta">Find an Advocate <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+      </div>
+      <div class="col-md-5">
+        <a href="advocate-intake.html" class="door give">
+          <div class="door-icon"><i class="fa-solid fa-hands-holding-child"></i></div>
+          <h3>I want to help families</h3>
+          <p>Join as an advocate, whether you do this today or are just starting out.</p>
+          <span class="door-cta">Signup as Advocate <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container container-narrow">
+    <div class="row g-4 align-items-start">
+      <div class="col-md-5">
+        <a href="#top" class="brand-lockup mb-3">
+          <img src="logo.svg" alt="SupportNow" class="brand-logo">
+        </a>
+        <p class="small-print mb-0" style="max-width:340px">
+          Family Advocacy is part of SupportNow, the Official Family Support Platform.
+        </p>
+      </div>
+      <div class="col-6 col-md-3">
+        <h4 style="font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--secondary)">For families</h4>
+        <div class="d-flex flex-column gap-2 mt-2">
+          <a href="family-intake.html">Find an Advocate</a>
+          <a href="#how">How it works</a>
+          <a href="#areas">Areas of support</a>
+        </div>
+      </div>
+      <div class="col-6 col-md-4">
+        <h4 style="font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--secondary)">For advocates</h4>
+        <div class="d-flex flex-column gap-2 mt-2">
+          <a href="advocate-intake.html">Signup as Advocate</a>
+          <a href="#about">About</a>
+        </div>
+      </div>
+    </div>
+    <hr class="hr-soft my-4">
+    <div class="d-flex flex-wrap justify-content-between gap-2">
+      <span class="small-print">© 2026 SupportNow, a project of the Go Boldly Foundation. All rights reserved.</span>
+      <div class="d-flex gap-3">
+        <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

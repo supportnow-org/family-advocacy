@@ -1,0 +1,156 @@
+/* ──────────────────────────────────────────────
+   SupportNow · Family Advocacy — shared intake styles
+   Used by family-intake.html and advocate-intake.html.
+   Per-page accent set on <body> via --accent / --accent-dark / --accent-bg.
+   ────────────────────────────────────────────── */
+
+:root{
+  --brand:#188aec; --brand-dark:#1274c9; --brand-light:#4da6f0; --brand-bg:#eef6fe; --navy:#1b2f80;
+  --give:#059669; --give-dark:#047857; --give-tint:#ecfdf5;
+  --amber:#d97706; --amber-tint:#fffbeb;
+
+  --ink:#111827; --body:#374151; --secondary:#6b7280; --muted:#9ca3af;
+  --border:#e8eaf0; --border-light:#f1f2f6; --bg:#fbfaf8; --card:#ffffff;
+
+  --warm-1:#fff6ef; --warm-2:#fdf1f4; --warm-3:#eef6fe;
+  --shadow:0 1px 3px rgba(17,24,39,.05);
+  --shadow-lg:0 24px 60px -20px rgba(27,47,128,.28);
+
+  /* default accent = brand blue; advocate page overrides on <body> */
+  --accent:var(--brand); --accent-dark:var(--brand-dark); --accent-bg:var(--brand-bg);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'DM Sans',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  color:var(--body); background:var(--bg); font-size:16.5px; line-height:1.6; -webkit-font-smoothing:antialiased;
+  margin:0;
+}
+h1,h2,h3,h4{color:var(--ink); font-weight:700; letter-spacing:-.02em; line-height:1.14}
+a{text-decoration:none}
+.container-narrow{max-width:880px}
+.eyebrow{font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--accent); display:inline-flex; align-items:center; gap:8px}
+.text-balance{text-wrap:balance}
+
+/* ── Top bar ── */
+.topbar{position:sticky; top:0; z-index:1000; background:rgba(251,250,248,.88); backdrop-filter:saturate(180%) blur(12px); border-bottom:1px solid var(--border-light)}
+.brand-lockup{display:flex; align-items:center; gap:11px}
+.brand-logo{height:28px; width:auto; display:block; flex-shrink:0}
+.wordmark{font-size:20px; font-weight:700; letter-spacing:-.02em; line-height:1}
+.wordmark b{color:var(--brand)} .wordmark em{color:var(--navy); font-style:normal}
+.vertical-tag{font-size:11px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--secondary); border-left:1px solid var(--border); margin-left:11px; padding-left:11px; line-height:1}
+.back-link{font-weight:600; font-size:14px; color:var(--secondary); display:inline-flex; align-items:center; gap:7px}
+.back-link:hover{color:var(--accent)}
+
+/* ── Buttons ── */
+.btn{font-weight:600; border-radius:50px; padding:13px 26px; font-size:15.5px; transition:.18s; border:1.5px solid transparent; white-space:nowrap}
+.btn-lg-x{padding:16px 34px; font-size:16.5px}
+.btn-accent{background:var(--accent); color:#fff}
+.btn-accent:hover{background:var(--accent-dark); color:#fff; transform:translateY(-1px); box-shadow:0 12px 26px -12px var(--accent)}
+.btn-ghost{background:#fff; color:var(--ink); border-color:var(--border)}
+.btn-ghost:hover{border-color:var(--accent); color:var(--accent)}
+
+/* ── Hero band ── */
+.intake-hero{
+  position:relative; overflow:hidden;
+  background:
+    radial-gradient(1100px 460px at 10% -20%, var(--warm-1) 0%, transparent 55%),
+    radial-gradient(1000px 460px at 95% -10%, var(--warm-3) 0%, transparent 55%);
+  padding:60px 0 40px;
+}
+.intake-hero h1{font-size:clamp(2rem,4vw,2.9rem); margin:14px 0 14px}
+.intake-hero .byline{font-size:clamp(1.02rem,1.5vw,1.22rem); color:var(--body); max-width:640px; margin:0 auto}
+.trust-row{display:flex; flex-wrap:wrap; gap:10px 22px; justify-content:center; margin-top:26px}
+.trust-row span{font-size:13.5px; color:var(--secondary); font-weight:500; display:inline-flex; align-items:center; gap:8px}
+.trust-row i{color:var(--give)}
+
+/* ── Form shell ── */
+.form-wrap{padding:0 0 88px}
+.form-card{background:var(--card); border:1px solid var(--border); border-radius:22px; box-shadow:var(--shadow); overflow:hidden}
+.form-section{padding:30px 34px; border-bottom:1px solid var(--border-light)}
+.form-section:last-of-type{border-bottom:none}
+.fs-head{display:flex; align-items:center; gap:12px; margin-bottom:20px}
+.fs-num{width:30px; height:30px; border-radius:50%; background:var(--accent-bg); color:var(--accent-dark); font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center; flex-shrink:0}
+.fs-title{font-size:1.16rem; font-weight:700; color:var(--ink); margin:0; line-height:1.2}
+.fs-sub{font-size:13.5px; color:var(--secondary); margin:2px 0 0}
+
+.field{margin-bottom:18px}
+.field:last-child{margin-bottom:0}
+.field-label{font-weight:600; font-size:14.5px; color:var(--ink); margin-bottom:7px; display:block}
+.req{color:var(--accent)}
+.opt{font-weight:500; color:var(--muted); font-size:12.5px}
+
+.form-control,.form-select{
+  width:100%; border-radius:12px; border:1.5px solid var(--border); padding:12px 14px; font-size:15px; color:var(--ink);
+  background-color:#fff; transition:.15s; font-family:inherit;
+}
+.form-control::placeholder{color:var(--muted)}
+.form-control:focus,.form-select:focus{border-color:var(--accent); box-shadow:0 0 0 4px var(--accent-bg); outline:none}
+textarea.form-control{min-height:108px; resize:vertical; line-height:1.55}
+
+/* ── Chips (multi-select / single-select pills) ── */
+.chip-group{display:flex; flex-wrap:wrap; gap:10px}
+.chip{
+  display:inline-flex; align-items:center; gap:8px; border:1.5px solid var(--border); background:#fff;
+  border-radius:50px; padding:9px 16px; font-size:14px; font-weight:600; color:var(--body); cursor:pointer;
+  transition:.15s; user-select:none; position:relative;
+}
+.chip:hover{border-color:var(--accent)}
+.chip input{position:absolute; opacity:0; pointer-events:none}
+.chip i{font-size:11px; width:0; opacity:0; transition:.15s}
+.chip:has(input:checked){background:var(--accent-bg); border-color:var(--accent); color:var(--accent-dark)}
+.chip:has(input:checked) i{width:11px; opacity:1}
+.chip:has(input:focus-visible){box-shadow:0 0 0 4px var(--accent-bg)}
+
+/* ── Choice cards (big radio rows) ── */
+.choice-cards{display:grid; gap:12px}
+.choice{
+  display:flex; gap:14px; align-items:flex-start; border:1.5px solid var(--border); border-radius:14px;
+  padding:16px 18px; cursor:pointer; transition:.15s; background:#fff;
+}
+.choice:hover{border-color:var(--accent)}
+.choice:has(input:checked){border-color:var(--accent); background:var(--accent-bg)}
+.choice input{margin:2px 0 0; accent-color:var(--accent); width:19px; height:19px; flex-shrink:0; cursor:pointer}
+.c-title{font-weight:700; color:var(--ink); font-size:15px; display:block; margin-bottom:1px}
+.c-sub{font-size:13.5px; color:var(--secondary); line-height:1.45}
+
+/* ── Checklist (credentials, diagnosis areas) ── */
+.check-list{display:grid; grid-template-columns:1fr 1fr; gap:11px 26px}
+.check{display:flex; gap:10px; align-items:flex-start; font-size:14.5px; color:var(--body); cursor:pointer; line-height:1.4}
+.check input{margin:2px 0 0; accent-color:var(--accent); width:17px; height:17px; flex-shrink:0; cursor:pointer}
+@media(max-width:600px){ .check-list{grid-template-columns:1fr} }
+
+/* ── Opt-in box ── */
+.optin{background:var(--accent-bg); border:1px solid var(--border); border-radius:14px; padding:6px 18px}
+.optin .check{padding:13px 0; font-size:14.5px}
+.optin .check + .check{border-top:1px solid rgba(255,255,255,.6)}
+.optin .check strong{color:var(--ink); font-weight:600}
+.optin .check small{display:block; color:var(--secondary); font-size:12.5px; font-weight:400}
+
+/* ── Reveal: follow-up input shown when "Other / Something else" is picked ── */
+.reveal{display:none}
+.reveal.open{display:block; margin-top:14px}
+
+/* width caps so short single-line fields look intentional, not stretched */
+.w-sm{max-width:200px}
+.w-md{max-width:380px}
+
+/* ── Submit bar ── */
+.submit-bar{padding:28px 34px; background:#fcfcfd; display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:space-between}
+.submit-note{font-size:13px; color:var(--muted); display:flex; align-items:center; gap:8px; max-width:380px}
+
+/* ── Success panel ── */
+.success{display:none; text-align:center; padding:56px 30px}
+.success .ic{width:68px; height:68px; border-radius:50%; background:var(--give-tint); color:var(--give); font-size:30px; display:flex; align-items:center; justify-content:center; margin:0 auto 22px}
+.success h2{font-size:1.7rem; margin-bottom:10px}
+.success p{color:var(--secondary); max-width:440px; margin:0 auto 8px}
+
+/* ── Footer ── */
+.foot{padding:30px 0; border-top:1px solid var(--border-light); background:#fff; text-align:center}
+.foot p{font-size:13px; color:var(--muted); margin:0}
+
+@media(max-width:600px){
+  .form-section{padding:24px 20px}
+  .submit-bar{padding:22px 20px}
+}
