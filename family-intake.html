@@ -49,28 +49,50 @@
     <form id="familyForm" novalidate>
       <div class="form-card" id="formCard">
 
-        <!-- 1. About you -->
+        <!-- 1. What you're looking for -->
         <section class="form-section">
           <div class="fs-head">
             <span class="fs-num">1</span>
-            <div><h3 class="fs-title">About you</h3><p class="fs-sub">So we can reach you about your match.</p></div>
+            <div><h3 class="fs-title">What kind of advocacy are you looking for?</h3><p class="fs-sub">Choose all that apply. We'll match you to advocates who specialize in these.</p></div>
           </div>
-          <div class="field"><label class="field-label">Your name <span class="req">*</span></label>
-            <input type="text" class="form-control" name="name" placeholder="Sam Carter" required></div>
-          <div class="field"><label class="field-label">Email <span class="req">*</span></label>
-            <input type="email" class="form-control" name="email" placeholder="you@email.com" required></div>
-          <div class="field"><label class="field-label">Phone <span class="opt">(optional)</span></label>
-            <input type="tel" class="form-control w-md" name="phone" placeholder="(555) 555-5555"></div>
-          <div class="field"><label class="field-label">State <span class="req">*</span></label>
-            <input type="text" class="form-control w-md" name="state" placeholder="e.g. Ohio" required></div>
-          <div class="field"><label class="field-label">ZIP <span class="opt">(optional)</span></label>
-            <input type="text" class="form-control w-sm" name="zip" placeholder="00000"></div>
+          <div class="chip-group">
+            <label class="chip"><input type="checkbox" name="areas" value="special-ed"><i class="fa-solid fa-check"></i> Special education &amp; IEPs</label>
+            <label class="chip"><input type="checkbox" name="areas" value="insurance"><i class="fa-solid fa-check"></i> Insurance &amp; Medicaid</label>
+            <label class="chip"><input type="checkbox" name="areas" value="diagnosis"><i class="fa-solid fa-check"></i> Diagnosis &amp; healthcare</label>
+            <label class="chip"><input type="checkbox" name="areas" value="early-intervention"><i class="fa-solid fa-check"></i> Early intervention</label>
+            <label class="chip"><input type="checkbox" name="areas" value="behavioral"><i class="fa-solid fa-check"></i> Behavioral &amp; mental health</label>
+            <label class="chip"><input type="checkbox" name="areas" value="legal"><i class="fa-solid fa-check"></i> Legal &amp; guardianship</label>
+            <label class="chip"><input type="checkbox" name="areas" value="transition"><i class="fa-solid fa-check"></i> Transition to adulthood</label>
+            <label class="chip"><input type="checkbox" name="areas" value="peer"><i class="fa-solid fa-check"></i> Peer &amp; emotional support</label>
+            <label class="chip"><input type="checkbox" name="areas" value="other" data-reveal-target="fam-area-other"><i class="fa-solid fa-check"></i> Something else</label>
+          </div>
+          <div class="reveal" id="fam-area-other">
+            <input type="text" class="form-control" name="areas_other" placeholder="Tell us what kind of support you're looking for">
+          </div>
         </section>
 
-        <!-- 2. About your child -->
+        <!-- 2. Urgency -->
         <section class="form-section">
           <div class="fs-head">
             <span class="fs-num">2</span>
+            <div><h3 class="fs-title">How urgent is it?</h3><p class="fs-sub">We'll prioritize families who need help right away.</p></div>
+          </div>
+          <div class="choice-cards">
+            <label class="choice"><input type="radio" name="urgency" value="urgent">
+              <span><span class="c-title">Urgent</span><span class="c-sub">I need help within the next few days.</span></span></label>
+            <label class="choice"><input type="radio" name="urgency" value="soon">
+              <span><span class="c-title">Soon</span><span class="c-sub">Within the next few weeks.</span></span></label>
+            <label class="choice"><input type="radio" name="urgency" value="planning">
+              <span><span class="c-title">Planning ahead</span><span class="c-sub">No rush, but I want support lined up.</span></span></label>
+            <label class="choice"><input type="radio" name="urgency" value="exploring">
+              <span><span class="c-title">Just exploring</span><span class="c-sub">Seeing what's out there for now.</span></span></label>
+          </div>
+        </section>
+
+        <!-- 3. About your child -->
+        <section class="form-section">
+          <div class="fs-head">
+            <span class="fs-num">3</span>
             <div><h3 class="fs-title">About your child</h3><p class="fs-sub">Just enough to find the right advocate. Share only what you're comfortable with.</p></div>
           </div>
           <div class="field">
@@ -105,28 +127,6 @@
           </div>
         </section>
 
-        <!-- 3. What you're looking for -->
-        <section class="form-section">
-          <div class="fs-head">
-            <span class="fs-num">3</span>
-            <div><h3 class="fs-title">What kind of advocacy are you looking for?</h3><p class="fs-sub">Choose all that apply. We'll match you to advocates who specialize in these.</p></div>
-          </div>
-          <div class="chip-group">
-            <label class="chip"><input type="checkbox" name="areas" value="special-ed"><i class="fa-solid fa-check"></i> Special education &amp; IEPs</label>
-            <label class="chip"><input type="checkbox" name="areas" value="insurance"><i class="fa-solid fa-check"></i> Insurance &amp; Medicaid</label>
-            <label class="chip"><input type="checkbox" name="areas" value="diagnosis"><i class="fa-solid fa-check"></i> Diagnosis &amp; healthcare</label>
-            <label class="chip"><input type="checkbox" name="areas" value="early-intervention"><i class="fa-solid fa-check"></i> Early intervention</label>
-            <label class="chip"><input type="checkbox" name="areas" value="behavioral"><i class="fa-solid fa-check"></i> Behavioral &amp; mental health</label>
-            <label class="chip"><input type="checkbox" name="areas" value="legal"><i class="fa-solid fa-check"></i> Legal &amp; guardianship</label>
-            <label class="chip"><input type="checkbox" name="areas" value="transition"><i class="fa-solid fa-check"></i> Transition to adulthood</label>
-            <label class="chip"><input type="checkbox" name="areas" value="peer"><i class="fa-solid fa-check"></i> Peer &amp; emotional support</label>
-            <label class="chip"><input type="checkbox" name="areas" value="other" data-reveal-target="fam-area-other"><i class="fa-solid fa-check"></i> Something else</label>
-          </div>
-          <div class="reveal" id="fam-area-other">
-            <input type="text" class="form-control" name="areas_other" placeholder="Tell us what kind of support you're looking for">
-          </div>
-        </section>
-
         <!-- 4. Your situation -->
         <section class="form-section">
           <div class="fs-head">
@@ -154,22 +154,22 @@
           </div>
         </section>
 
-        <!-- 6. Urgency -->
+        <!-- 6. About you (contact) -->
         <section class="form-section">
           <div class="fs-head">
             <span class="fs-num">6</span>
-            <div><h3 class="fs-title">How urgent is it?</h3><p class="fs-sub">We'll prioritize families who need help right away.</p></div>
+            <div><h3 class="fs-title">About you</h3><p class="fs-sub">Last step. So we can reach you about your match.</p></div>
           </div>
-          <div class="choice-cards">
-            <label class="choice"><input type="radio" name="urgency" value="urgent">
-              <span><span class="c-title">Urgent</span><span class="c-sub">I need help within the next few days.</span></span></label>
-            <label class="choice"><input type="radio" name="urgency" value="soon">
-              <span><span class="c-title">Soon</span><span class="c-sub">Within the next few weeks.</span></span></label>
-            <label class="choice"><input type="radio" name="urgency" value="planning">
-              <span><span class="c-title">Planning ahead</span><span class="c-sub">No rush, but I want support lined up.</span></span></label>
-            <label class="choice"><input type="radio" name="urgency" value="exploring">
-              <span><span class="c-title">Just exploring</span><span class="c-sub">Seeing what's out there for now.</span></span></label>
-          </div>
+          <div class="field"><label class="field-label">Your name <span class="req">*</span></label>
+            <input type="text" class="form-control" name="name" placeholder="Sam Carter" required></div>
+          <div class="field"><label class="field-label">Email <span class="req">*</span></label>
+            <input type="email" class="form-control" name="email" placeholder="you@email.com" required></div>
+          <div class="field"><label class="field-label">Phone <span class="opt">(optional)</span></label>
+            <input type="tel" class="form-control w-md" name="phone" placeholder="(555) 555-5555"></div>
+          <div class="field"><label class="field-label">State <span class="req">*</span></label>
+            <input type="text" class="form-control w-md" name="state" placeholder="e.g. Ohio" required></div>
+          <div class="field"><label class="field-label">ZIP <span class="opt">(optional)</span></label>
+            <input type="text" class="form-control w-sm" name="zip" placeholder="00000"></div>
         </section>
 
         <!-- 7. Stay in the loop -->
