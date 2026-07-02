@@ -47,7 +47,10 @@
 <!-- FORM -->
 <main class="form-wrap">
   <div class="container container-narrow">
-    <form id="advocateForm" novalidate>
+    <form id="advocateForm" action="https://formspree.io/f/mgojnbpd" method="POST" novalidate>
+      <!-- Formspree helpers: friendlier notification subject + honeypot spam trap -->
+      <input type="hidden" name="_subject" value="New advocate application — SupportNow">
+      <p class="hp" aria-hidden="true"><label>Leave this field empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
       <div class="form-card" id="formCard">
 
         <!-- 1. Type of advocacy -->
@@ -123,7 +126,7 @@
             </div>
           </div>
           <div class="field">
-            <label class="field-label">Roughly how many families could you take on now?</label>
+            <label class="field-label">What's your capacity — how many families could you support at any one time?</label>
             <div class="chip-group">
               <label class="chip"><input type="radio" name="capacity" value="unsure"><i class="fa-solid fa-check"></i> Not sure</label>
               <label class="chip"><input type="radio" name="capacity" value="1-2"><i class="fa-solid fa-check"></i> 1–2</label>
@@ -144,7 +147,9 @@
             <label class="check"><input type="checkbox" name="credentials" value="attorney"> Special education or disability attorney</label>
             <label class="check"><input type="checkbox" name="credentials" value="bcba"> BCBA (behavior analyst)</label>
             <label class="check"><input type="checkbox" name="credentials" value="clinician"> Licensed clinician (LCSW, LMFT, psychologist)</label>
+            <label class="check"><input type="checkbox" name="credentials" value="social-worker"> Social worker</label>
             <label class="check"><input type="checkbox" name="credentials" value="sped-teacher"> Special education teacher / certified</label>
+            <label class="check"><input type="checkbox" name="credentials" value="former-aide-teacher"> Former aide or teacher</label>
             <label class="check"><input type="checkbox" name="credentials" value="parent-center"> Parent center / PTI experience</label>
             <label class="check"><input type="checkbox" name="credentials" value="bcpa"> Board Certified Patient Advocate (BCPA)</label>
             <label class="check"><input type="checkbox" name="credentials" value="lived-experience"> Lived experience as a parent / caregiver</label>
@@ -173,16 +178,16 @@
             <span class="fs-num">7</span>
             <div><h3 class="fs-title">About you</h3><p class="fs-sub">Last step. So we can reach you about matches.</p></div>
           </div>
-          <div class="field"><label class="field-label">Full name <span class="req">*</span></label>
-            <input type="text" class="form-control" name="name" placeholder="Jordan Rivera" required></div>
-          <div class="field"><label class="field-label">Email <span class="req">*</span></label>
-            <input type="email" class="form-control" name="email" placeholder="you@email.com" required></div>
-          <div class="field"><label class="field-label">Phone <span class="opt">(optional)</span></label>
-            <input type="tel" class="form-control w-md" name="phone" placeholder="(555) 555-5555"></div>
-          <div class="field"><label class="field-label">State <span class="req">*</span></label>
-            <input type="text" class="form-control w-md" name="state" placeholder="e.g. Texas" required></div>
-          <div class="field"><label class="field-label">ZIP <span class="opt">(optional)</span></label>
-            <input type="text" class="form-control w-sm" name="zip" placeholder="00000"></div>
+          <div class="field"><label class="field-label" for="adv-name">Full name <span class="req">*</span></label>
+            <input type="text" id="adv-name" class="form-control" name="name" placeholder="Jordan Rivera" autocomplete="name" required></div>
+          <div class="field"><label class="field-label" for="adv-email">Email <span class="req">*</span></label>
+            <input type="email" id="adv-email" class="form-control" name="email" placeholder="you@email.com" autocomplete="email" inputmode="email" required></div>
+          <div class="field"><label class="field-label" for="adv-phone">Phone <span class="req">*</span></label>
+            <input type="tel" id="adv-phone" class="form-control w-md" name="phone" placeholder="(555) 555-5555" autocomplete="tel" inputmode="tel"></div>
+          <div class="field"><label class="field-label" for="adv-state">State <span class="req">*</span></label>
+            <input type="text" id="adv-state" class="form-control w-md" name="state" placeholder="e.g. Texas" autocomplete="address-level1" required></div>
+          <div class="field"><label class="field-label" for="adv-zip">ZIP <span class="req">*</span></label>
+            <input type="text" id="adv-zip" class="form-control w-sm" name="zip" placeholder="00000" autocomplete="postal-code" inputmode="numeric"></div>
         </section>
 
         <!-- 8. Program interest (light opt-in) -->
@@ -194,15 +199,16 @@
           <div class="optin">
             <label class="check"><input type="checkbox" name="interest" value="certification">
               <span><strong>I'm interested in the certification program</strong>
-              <small>For advocates who want training and a recognized credential to get started.</small></span></label>
+              <small>For advocates who want training and recognition to get started.</small></span></label>
             <label class="check"><input type="checkbox" name="interest" value="referral">
               <span><strong>I'm interested in the preferred referral program</strong>
-              <small>For experienced advocates who want priority matches with families.</small></span></label>
+              <small>For advocates who want priority matches with families.</small></span></label>
           </div>
         </section>
 
         <!-- Submit -->
         <div class="submit-bar">
+          <div class="form-error" id="formError" role="alert"></div>
           <span class="submit-note"><i class="fa-solid fa-lock"></i> Your information is private and never sold. We'll only use it to match you with families.</span>
           <button type="submit" class="btn btn-accent btn-lg-x"><i class="fa-solid fa-paper-plane me-2"></i>Signup as Advocate</button>
         </div>
@@ -239,13 +245,44 @@
     sync();
   });
 
-  // Prototype only: no backend. Validate, then show the success state.
+  // Submit to Formspree via fetch so we can keep the in-page success panel.
   document.getElementById('advocateForm').addEventListener('submit', function(e){
     e.preventDefault();
-    if(!this.checkValidity()){ this.reportValidity(); return; }
-    document.getElementById('formCard').style.display='none';
-    document.getElementById('successPanel').style.display='block';
-    window.scrollTo({top:0, behavior:'smooth'});
+    var form = this;
+    if(!form.checkValidity()){ form.reportValidity(); return; }
+
+    var btn = form.querySelector('button[type="submit"]');
+    var errorBox = document.getElementById('formError');
+    var originalBtn = btn.innerHTML;
+    errorBox.classList.remove('show');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin me-2"></i>Sending…';
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(function(res){
+      if(res.ok){
+        document.getElementById('formCard').style.display='none';
+        document.getElementById('successPanel').style.display='block';
+        window.scrollTo({top:0, behavior:'smooth'});
+        return;
+      }
+      return res.json().catch(function(){ return null; }).then(function(data){
+        var msg = (data && data.errors && data.errors.length)
+          ? data.errors.map(function(er){ return er.message; }).join(' ')
+          : 'Something went wrong on our end. Please try again in a moment.';
+        throw new Error(msg);
+      });
+    }).catch(function(err){
+      errorBox.textContent = (err && err.message)
+        ? err.message
+        : 'We couldn’t reach the server. Please check your connection and try again.';
+      errorBox.classList.add('show');
+      btn.disabled = false;
+      btn.innerHTML = originalBtn;
+    });
   });
 </script>
 </body>
